@@ -1,3 +1,3 @@
 rootProject.name = 'xxxxx'
 include 'LambdaCommon'
-include 'LambdaTest2'
+include 'LambdaTest'

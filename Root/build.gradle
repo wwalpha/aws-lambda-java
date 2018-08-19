@@ -35,11 +35,11 @@ project(':LambdaCommon') {
     }
 }
 
-project(':LambdaTest2') {
+project(':LambdaTest') {
     dependencies {
         compile project(':LambdaCommon')
         compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: AWS_JAVA_SDK_DYNAMODB_VERSION
     }
 }
 
-task LambdaTest2
+task LambdaTest
