@@ -10,7 +10,7 @@ Lambda(Java)管理用プロジェクトです。
 * Java
   * 使ったライブラリは `lib` フォルダにコピーし、zipに梱包する
 
-## Futures
+## Features
 * Best Practiceに従って、gradleで高速ビルドし、実行用モジュールを作成する
 * SAM、CloudFormationを使って、素早くDeployすることができる
 * プロジェクト管理
