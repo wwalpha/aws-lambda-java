@@ -1,1 +1,7 @@
 apply plugin: 'eclipse'
+
+dependencies {
+    compile project(':LambdaCommon')
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: AWS_JAVA_SDK_DYNAMODB_VERSION
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+}

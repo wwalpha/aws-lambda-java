@@ -1,4 +1,3 @@
-
 subprojects {
     apply plugin: 'java'
     group = 'org.gradle.sample'
@@ -35,11 +34,5 @@ project(':LambdaCommon') {
     }
 }
 
-project(':LambdaTest') {
-    dependencies {
-        compile project(':LambdaCommon')
-        compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: AWS_JAVA_SDK_DYNAMODB_VERSION
-    }
-}
 
 task LambdaTest
