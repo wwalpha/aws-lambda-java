@@ -1,0 +1,45 @@
+
+subprojects {
+    apply plugin: 'java'
+    group = 'org.gradle.sample'
+    version = '1.0'
+    
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: AWS_LAMBDA_JAVA_CORE_VERSION
+        compile group: 'com.amazonaws', name: 'aws-lambda-java-events', version: AWS_LAMBDA_JAVA_EVENT_VERSION
+        compile fileTree(dir: 'jars', include: '*.jar')
+        testCompile  group: 'junit', name: 'junit', version: JUNIT_VERSION
+    }
+
+    task buildZip(type: Zip) {
+        from compileJava {
+            options.encoding = 'UTF-8'
+        }
+
+        from processResources
+        into('lib') {
+            from configurations.compile
+        }
+    }
+
+    build.dependsOn buildZip
+}
+
+project(':LambdaCommon') {
+    dependencies {
+        compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: AWS_JAVA_SDK_DYNAMODB_VERSION
+    }
+}
+
+project(':LambdaTest2') {
+    dependencies {
+        compile project(':LambdaCommon')
+        compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: AWS_JAVA_SDK_DYNAMODB_VERSION
+    }
+}
+
+task LambdaTest2
